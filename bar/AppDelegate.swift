@@ -7,15 +7,23 @@
 //
 
 import Cocoa
+import Foundation
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
 
+    var statusBar = NSStatusBar.systemStatusBar()
+    var statusBarItem : NSStatusItem = NSStatusItem()
+    
+    
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        // Insert code here to initialize your application
+        statusBarItem = statusBar.statusItemWithLength(-1)
+        statusBarItem.title = "Presses"
+        refresh()
+        var timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("refresh"), userInfo: nil, repeats: true)
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
@@ -23,5 +31,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
 
+    func refresh() {
+        let rnd = Int(arc4random_uniform(1000) + 1)
+        statusBarItem.title = NSString(format: "1$=%.2f PLN", Float(rnd)/Float(100)) as String
+    }
+    
 }
 
