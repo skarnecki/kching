@@ -22,7 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         statusBarItem = statusBar.statusItemWithLength(-1)
         refresh()
-        NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(AppDelegate.refresh), userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: #selector(AppDelegate.refresh), userInfo: nil, repeats: true)
     }
 
     func refresh() {
