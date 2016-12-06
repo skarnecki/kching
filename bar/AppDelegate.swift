@@ -16,25 +16,47 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     var statusBar = NSStatusBar.systemStatusBar()
     var statusBarItem : NSStatusItem = NSStatusItem()
-    
-    
+    var rssResponse = String()
+    var rate = Float()
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         statusBarItem = statusBar.statusItemWithLength(-1)
-        statusBarItem.title = "Presses"
         refresh()
-        var timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("refresh"), userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(AppDelegate.refresh), userInfo: nil, repeats: true)
     }
-
-    func applicationWillTerminate(aNotification: NSNotification) {
-        // Insert code here to tear down your application
-    }
-
 
     func refresh() {
-        let rnd = Int(arc4random_uniform(1000) + 1)
-        statusBarItem.title = NSString(format: "1$=%.2f PLN", Float(rnd)/Float(100)) as String
+        rssResponse = get()
+        rate = getCurrency(rssResponse)
+        if (rate > 1) {
+            statusBarItem.title = NSString(format: "1$=%.4f PLN", rate) as String
+        }
     }
     
+    func getCurrency(rss: String) -> Float {
+        if let from = rss.rangeOfString("1.00 USD =") {
+            if let to = rss.rangeOfString("PLN<br/>") {
+                let xyz = rss.substringWithRange(Range<String.Index>(from.endIndex..<to.startIndex))
+                return (xyz as NSString).floatValue
+            }
+        }
+        return 0
+    }
+    
+    func get() -> String {
+        let myURLString = "http://pln.fxexchangerate.com/usd.xml";
+        guard let myURL = NSURL(string: myURLString) else {
+            print("Error: \(myURLString) doesn't seem to be a valid URL")
+            return ""
+        }
+        
+        do {
+            let myHTMLString = try String(contentsOfURL: myURL)
+            return myHTMLString
+        } catch let error as NSError {
+            print("Error: \(error)")
+        }
+        return ""
+    }
 }
 
