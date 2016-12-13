@@ -13,7 +13,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C0718D691DDB252A0059E19C /* bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0718D691DDB252A0059E19C /* kching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kching.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0718D6C1DDB252A0059E19C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0718D6E1DDB252A0059E19C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0718D711DDB252A0059E19C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -34,7 +34,7 @@
 		C0718D601DDB25290059E19C = {
 			isa = PBXGroup;
 			children = (
-				C0718D6B1DDB252A0059E19C /* bar */,
+				C0718D6B1DDB252A0059E19C /* kching */,
 				C0718D6A1DDB252A0059E19C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -42,12 +42,12 @@
 		C0718D6A1DDB252A0059E19C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C0718D691DDB252A0059E19C /* bar.app */,
+				C0718D691DDB252A0059E19C /* kching.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C0718D6B1DDB252A0059E19C /* bar */ = {
+		C0718D6B1DDB252A0059E19C /* kching */ = {
 			isa = PBXGroup;
 			children = (
 				C0718D6C1DDB252A0059E19C /* AppDelegate.swift */,
@@ -55,15 +55,16 @@
 				C0718D701DDB252A0059E19C /* MainMenu.xib */,
 				C0718D731DDB252A0059E19C /* Info.plist */,
 			);
+			name = kching;
 			path = bar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C0718D681DDB25290059E19C /* bar */ = {
+		C0718D681DDB25290059E19C /* kching */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C0718D761DDB252A0059E19C /* Build configuration list for PBXNativeTarget "bar" */;
+			buildConfigurationList = C0718D761DDB252A0059E19C /* Build configuration list for PBXNativeTarget "kching" */;
 			buildPhases = (
 				C0718D651DDB25290059E19C /* Sources */,
 				C0718D661DDB25290059E19C /* Frameworks */,
@@ -73,9 +74,9 @@
 			);
 			dependencies = (
 			);
-			name = bar;
+			name = kching;
 			productName = bar;
-			productReference = C0718D691DDB252A0059E19C /* bar.app */;
+			productReference = C0718D691DDB252A0059E19C /* kching.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -94,7 +95,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C0718D641DDB25290059E19C /* Build configuration list for PBXProject "bar" */;
+			buildConfigurationList = C0718D641DDB25290059E19C /* Build configuration list for PBXProject "kching" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -107,7 +108,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C0718D681DDB25290059E19C /* bar */,
+				C0718D681DDB25290059E19C /* kching */,
 			);
 		};
 /* End PBXProject section */
@@ -258,7 +259,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C0718D641DDB25290059E19C /* Build configuration list for PBXProject "bar" */ = {
+		C0718D641DDB25290059E19C /* Build configuration list for PBXProject "kching" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C0718D741DDB252A0059E19C /* Debug */,
@@ -267,7 +268,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C0718D761DDB252A0059E19C /* Build configuration list for PBXNativeTarget "bar" */ = {
+		C0718D761DDB252A0059E19C /* Build configuration list for PBXNativeTarget "kching" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C0718D771DDB252A0059E19C /* Debug */,
