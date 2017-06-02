@@ -14,15 +14,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
 
-    var statusBar = NSStatusBar.systemStatusBar()
+    var statusBar = NSStatusBar.system()
     var statusBarItem : NSStatusItem = NSStatusItem()
     var rssResponse = String()
     var rate = Float()
 
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
-        statusBarItem = statusBar.statusItemWithLength(-1)
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        statusBarItem = statusBar.statusItem(withLength: -1)
         refresh()
-        NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: #selector(AppDelegate.refresh), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(AppDelegate.refresh), userInfo: nil, repeats: true)
     }
 
     func refresh() {
@@ -33,10 +33,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    func getCurrency(rss: String) -> Float {
-        if let from = rss.rangeOfString("1.00 USD =") {
-            if let to = rss.rangeOfString("PLN<br/>") {
-                let xyz = rss.substringWithRange(Range<String.Index>(from.endIndex..<to.startIndex))
+    func getCurrency(_ rss: String) -> Float {
+        if let from = rss.range(of: "1.00 USD =") {
+            if let to = rss.range(of: "PLN<br/>") {
+                let xyz = rss.substring(with: Range<String.Index>(from.upperBound..<to.lowerBound))
                 return (xyz as NSString).floatValue
             }
         }
@@ -45,13 +45,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func get() -> String {
         let myURLString = "http://pln.fxexchangerate.com/usd.xml";
-        guard let myURL = NSURL(string: myURLString) else {
+        guard let myURL = URL(string: myURLString) else {
             print("Error: \(myURLString) doesn't seem to be a valid URL")
             return ""
         }
         
         do {
-            let myHTMLString = try String(contentsOfURL: myURL)
+            let myHTMLString = try String(contentsOf: myURL)
             return myHTMLString
         } catch let error as NSError {
             print("Error: \(error)")
