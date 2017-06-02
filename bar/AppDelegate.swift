@@ -14,15 +14,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
 
-    var statusBar = NSStatusBar.system()
+    let statusBar = NSStatusBar.system()
+    let menu = NSMenu()
     var statusBarItem : NSStatusItem = NSStatusItem()
     var rssResponse = String()
     var rate = Float()
+
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         statusBarItem = statusBar.statusItem(withLength: -1)
         refresh()
         Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(AppDelegate.refresh), userInfo: nil, repeats: true)
+        
+        menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.shared().terminate), keyEquivalent: "q"));
+        statusBarItem.menu = menu
     }
 
     func refresh() {
